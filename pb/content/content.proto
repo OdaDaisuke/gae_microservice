@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+message Content {
+    string id = 1;
+    string name = 2;
+    string price = 3;
+    string description = 4;
+}
+
+message GetContentRequest {
+    string id = 1;
+}
+
+message GetContentResponse {
+    Content content = 1;
+}
+
+message GetContentsRequest {
+    string after_id = 1;
+    string before_id = 2;
+}
+
+message GetContentsResponse {
+    repeated Content contents = 1;
+}
+
+service ContentService {
+    rpc GetContent(GetContentRequest) returns (GetContentResponse);
+    rpc GetContents(GetContentsRequest) returns (GetContentsResponse);
+}

@@ -1,0 +1,11 @@
+runtime: go111
+
+service: main
+inbound_services:
+  - warmup
+
+handlers:
+  - url: /.*
+    script: auto
+    secure: always
+
